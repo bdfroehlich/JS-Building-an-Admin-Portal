@@ -53,6 +53,7 @@ async function main() {
     })
 
     app.listen(3001, () => {
+        //app is running on 3000 but listening to http requests on 3001
         liveServer.start({
             port: 3000,
             logLevel: 0,
@@ -62,7 +63,9 @@ async function main() {
 }
 
 const DB_PATH = Path.join(__dirname, 'db.json')
+//takes you to path dbjson
 
+//loadbooks loads the books from db.json
 async function loadBooks() {
     let { books } = JSON.parse(await Fs.readFile(DB_PATH))
     return books
